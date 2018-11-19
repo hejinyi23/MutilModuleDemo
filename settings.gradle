@@ -1,2 +1,2 @@
-include ':app', ':baseModule', ':loginModule', ':webMoule', ':eventlib',
+include ':app', ':baseModule', ':loginModule', ':webMoule', ':eventLib',
         'zxingLib'

@@ -62,5 +62,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
 
     implementation project(':baseModule')
-    implementation project(':eventlib')
+    implementation project(':eventLib')
 }

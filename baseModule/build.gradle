@@ -53,5 +53,5 @@ dependencies {
     //------------arouter end-------------------------------
     api 'com.orhanobut:logger:2.2.0'
     api project(':zxingLib')
-    implementation project(':eventlib')
+    implementation project(':eventLib')
 }
