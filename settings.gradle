@@ -1,0 +1,2 @@
+include ':app', ':baseModule', ':loginModule', ':webMoule', ':eventlib',
+        'zxingLib'

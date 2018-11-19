@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="zxing_turn_on_flashlight">开启闪光灯</string>
+    <string name="zxing_turn_off_flashlight">关闭闪光灯</string>
+    <string name="zxing_title_activity_tabbed_scanning">Tabbed Scanning</string>
+</resources>
