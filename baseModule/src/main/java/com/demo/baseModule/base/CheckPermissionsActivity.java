@@ -32,7 +32,7 @@ import java.util.List;
  * 继承了Activity，实现Android6.0的运行时权限检测
  * 需要进行运行时权限检测的Activity可以继承这个类
  */
-public class CheckPermissionsActivity extends BaseActivity {
+public abstract class CheckPermissionsActivity extends BaseActivity {
 
     private static final String TAG = "CheckPermissionsActivit";
     /**
@@ -180,19 +180,19 @@ public class CheckPermissionsActivity extends BaseActivity {
      */
     private void showMissingPermissionDialog(String tip) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.notifyTitle);
+        builder.setTitle(R.string.base_notifyTitle);
         builder.setMessage("【你已经选择了不再提示，或系统默认不再提示】\r\n" +
                 "获取【" + tip + "】权限失败,将导致部分功能无法正常使用，需要到设置页面手动授权");
 
         // 拒绝, 退出应用
-        builder.setNegativeButton(R.string.cancle,
+        builder.setNegativeButton(R.string.base_cancel,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(CheckPermissionsActivity.this, "请授权后继续", Toast.LENGTH_SHORT).show();
                     }
                 });
-        builder.setPositiveButton(R.string.authorization,
+        builder.setPositiveButton(R.string.base_authorization,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

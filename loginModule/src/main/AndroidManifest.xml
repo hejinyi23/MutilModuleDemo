@@ -2,7 +2,6 @@
     package="com.demo.loginmodule">
     <application>
         <activity
-            android:theme="@style/Theme.AppCompat.Light"
             android:name="com.demo.loginmodule.activity.LoginActivity" />
     </application>
 </manifest>

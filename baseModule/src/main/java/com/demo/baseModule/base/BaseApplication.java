@@ -24,7 +24,6 @@ public abstract class BaseApplication extends BaseAbstractApplication implements
     private ArrayList<Activity> activities;
     public static BaseApplication application;
 
-    public static boolean isLoadingMail;//是否正在加载邮件
     private int foregroundActivityCount = 0;//统计前台Activity数量
 
     @Override

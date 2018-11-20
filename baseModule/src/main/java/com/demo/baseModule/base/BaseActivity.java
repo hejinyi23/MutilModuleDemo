@@ -6,43 +6,60 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.text.TextUtils;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
+
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
+import com.demo.baseModule.R;
 import com.demo.baseModule.utils.HandleBackUtil;
-import com.demo.baseModule.utils.ViewTool;
+import com.demo.baseModule.utils.StringUtil;
 
 
 import static android.view.Window.ID_ANDROID_CONTENT;
 
 
-public abstract class BaseActivity extends FragmentActivity {
-    InputMethodManager imm;
-    private ViewTool viewTool;
+public abstract class BaseActivity extends AppCompatActivity {
+    private InputMethodManager imm;
     protected boolean locked = false;
+    private LinearLayout parentLinearLayout;
+    private TextView mTvTitle;
+    private TextView mTvRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //当Activity从异常销毁中恢复后savedInstanceState一定不为null，随后会执行恢复流程，然而当savedInstanceState设置为空后便会走正常启动流程
         if (null != savedInstanceState) {
-            savedInstanceState=null;
+            savedInstanceState = null;
         }
         super.onCreate(savedInstanceState);
-
-        viewTool = new ViewTool(this.getWindow());
         imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        // 去掉标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-
+        //是否需要ToolBar
+        if (isShowToolBar()) {
+            initContentView(R.layout.base_base_activity);
+            setContentView(getContentViewLayoutId());
+            showBackIcon();
+            initTooBarView();
+        } else {
+            setContentView(getContentViewLayoutId());
+        }
     }
+
+    private void initTooBarView(){
+        Toolbar toolbar =getToolbar();
+        mTvTitle=toolbar.findViewById(R.id.tv_tb_center_title);
+        mTvRight=toolbar.findViewById(R.id.tv_right);
+    };
 
 
     @Override
@@ -82,6 +99,33 @@ public abstract class BaseActivity extends FragmentActivity {
         }
     }
 
+
+    protected abstract int getContentViewLayoutId();
+
+    private void initContentView(@LayoutRes int layoutResID) {
+        ViewGroup viewGroup = getContentView();
+        viewGroup.removeAllViews();
+
+        parentLinearLayout = new LinearLayout(this);
+        parentLinearLayout.setOrientation(LinearLayout.VERTICAL);
+        //  add parentLinearLayout in viewGroup
+        viewGroup.addView(parentLinearLayout);
+        //  add the layout of BaseActivity in parentLinearLayout
+        LayoutInflater.from(this).inflate(layoutResID, parentLinearLayout, true);
+    }
+
+
+    /**
+     * @param layoutResID layout id of sub-activity
+     */
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        if (isShowToolBar()) {
+            LayoutInflater.from(this).inflate(layoutResID, parentLinearLayout, true);
+        } else {
+            super.setContentView(layoutResID);
+        }
+    }
 
 
     /**
@@ -144,72 +188,9 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
 
-    protected void hideView(int... resourcedIds) {
-        viewTool.hideView(resourcedIds);
-    }
-
-    protected void hideView(View... view) {
-        viewTool.hideView(view);
-    }
-
-    protected void showView(View... view) {
-        viewTool.showView(view);
-    }
-
-    protected void showView(int... resourcedIds) {
-        viewTool.showView(resourcedIds);
-    }
-
-    protected void setText(int textViewId, String text) {
-        viewTool.setText(textViewId, text);
-    }
-
-    protected void setText(int textViewId, String text, String defaultString) {
-        if (TextUtils.isEmpty(text)) {
-            viewTool.setText(textViewId, defaultString);
-        } else {
-            viewTool.setText(textViewId, text);
-        }
-    }
-
-    protected <T extends TextView> void setText(T view, String text) {
-        viewTool.setText(view, text);
-    }
-
-    protected <T extends TextView> String getText(T view) {
-        return viewTool.getText(view);
-    }
-
-    protected void setViewNonClick(int... resourceIds) {
-        viewTool.setViewNonClick(resourceIds);
-    }
-
-    protected void setViewNonClick(View... view) {
-        viewTool.setViewNonClick(view);
-    }
-
-    protected void setViewCanClick(View... view) {
-        viewTool.setViewCanClick(view);
-    }
-
-    protected void setViewCanClick(int... resourceIds) {
-        viewTool.setViewCanClick(resourceIds);
-    }
-
-    public void setClickState(boolean clickable, View view) {
-        if (clickable) {
-            view.setAlpha(1.0f);
-            view.setClickable(true);
-        } else {
-            view.setAlpha(0.6f);
-            view.setClickable(false);
-        }
-    }
-
-
-
     /**
      * 默认返回true，使用系统资源，如果个别界面不需要，在这些activity中Override this method ，then return false;
+     *
      * @return
      */
     protected boolean isNeedSystemResConfig() {
@@ -218,17 +199,99 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected void setFullScreen() {
         // 设置全屏
-        View decorView =getDecorView();
+        View decorView = getDecorView();
         int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(option);
     }
 
-    public View getContentView(){
+    public ViewGroup getContentView() {
         return findViewById(ID_ANDROID_CONTENT);
     }
 
-    public View getDecorView(){
-        return  getWindow().getDecorView();
+    public View getDecorView() {
+        return getWindow().getDecorView();
     }
+
+
+    private void showBackIcon() {
+        if (null != getToolbar() && isShowBackIcon()) {
+            getToolbar().setNavigationOnClickListener((new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            }));
+        }
+    }
+
+    private void showBackIcon(@DrawableRes int iconBack) {
+        getToolbar().setNavigationIcon(iconBack);
+    }
+
+    /**
+     * @return TextView in center
+     */
+    public TextView getToolbarTitle() {
+        return mTvTitle;
+    }
+
+
+    /**
+     * @return TextView on the right
+     */
+    public TextView getSubTitle() {
+        return mTvRight;
+    }
+
+
+    public void setSubTitlee(CharSequence subTitle) {
+        mTvRight.setText(subTitle);
+    }
+
+    public void setSubTitle(int titleRes) {
+        mTvRight.setText(StringUtil.getString(titleRes));
+    }
+
+    /**
+     * set Title
+     *
+     * @param title
+     */
+    public void setToolBarTitle(CharSequence title) {
+        if (mTvTitle != null) {
+            mTvTitle.setText(title);
+        } else {
+            getToolbar().setTitle(title);
+            setSupportActionBar(getToolbar());
+        }
+    }
+
+    public void setToolBarTitle(int titleRes) {
+        mTvTitle.setText(StringUtil.getString(titleRes));
+    }
+
+    /**
+     * the toolbar of this Activity
+     *
+     * @return support.v7.widget.Toolbar.
+     */
+    public Toolbar getToolbar() {
+        return (Toolbar) findViewById(R.id.base_toolbar);
+    }
+
+    /**
+     * is show back icon,default is none。
+     * you can override the function in subclass and return to true show the back icon
+     *
+     * @return
+     */
+    protected boolean isShowBackIcon() {
+        return true;
+    }
+
+    protected boolean isShowToolBar() {
+        return true;
+    }
+
 
 }

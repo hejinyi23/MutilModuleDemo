@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">BaseLibrary</string>
-    <!--授权提示-->
-    <string name="notifyTitle">提示</string>
-    <string name="authorization">去授权</string>
-    <string name="cancle">取消</string>
-</resources>

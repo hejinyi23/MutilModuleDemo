@@ -38,8 +38,12 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity_login);
         unbinder = ButterKnife.bind(this);
+    }
+
+    @Override
+    protected int getContentViewLayoutId() {
+        return R.layout.login_activity_login;
     }
 
     @Override

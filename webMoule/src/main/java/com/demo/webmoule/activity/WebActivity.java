@@ -97,12 +97,16 @@ public class WebActivity extends CheckPermissionsActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initWebView();
         checkPermissions(REQUEST_PERMISSION_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         wvContent.loadUrl("https://www.baidu.com/");
+    }
+
+    @Override
+    protected int getContentViewLayoutId() {
+        return R.layout.activity_main;
     }
 
     private void initWebView() {
