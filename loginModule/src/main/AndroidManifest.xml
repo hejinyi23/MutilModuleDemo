@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.eims.loginmodule">
+    package="com.md.loginmodule">
 
     <application>
         <activity
-            android:name=".activity.WelcomeActivity"
+            android:name="com.md.loginmodule.activity.WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/base_FullscreenTheme">
             <intent-filter>
@@ -15,19 +15,19 @@
         </activity>
 
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.md.loginmodule.activity.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/base_FullscreenTheme" />
 
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.FindPsdActivity" />
-        <activity android:name=".activity.PhoneVerificationActivity" />
+        <activity android:name="com.md.loginmodule.activity.HomeActivity" />
+        <activity android:name="com.md.loginmodule.activity.FindPsdActivity" />
+        <activity android:name="com.md.loginmodule.activity.PhoneVerificationActivity" />
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name="com.md.loginmodule.activity.RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/base_FullscreenTheme" />
-        <activity android:name=".activity.SetPsdActivity" />
-        <activity android:name=".activity.UserAgreementActivity" />
+        <activity android:name="com.md.loginmodule.activity.SetPsdActivity" />
+        <activity android:name="com.md.loginmodule.activity.UserAgreementActivity" />
 
     </application>
 
