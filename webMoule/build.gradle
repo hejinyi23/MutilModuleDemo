@@ -8,11 +8,10 @@ apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 28
-
-
+    resourcePrefix 'web_'
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.androidTargetSdk
         versionCode 1
         versionName "1.0"
 
@@ -34,7 +33,6 @@ android {
     }
 
     sourceSets {
-
         main {
             if (!isNeedWebModule.toBoolean()) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
@@ -60,7 +58,9 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     //----------------butterknife------------
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
-
     implementation project(':baseModule')
     implementation project(':eventLib')
+    if (isNeedZxingModule.toBoolean()) {
+        implementation project(':zxingLib')
+    }
 }

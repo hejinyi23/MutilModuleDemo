@@ -15,6 +15,9 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+
     }
 
     buildTypes {
@@ -35,21 +38,37 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'org.greenrobot:eventbus:3.1.1'
-    api 'com.google.code.gson:gson:2.8.5'
+
     //------------butterknife-------------------------------
     api 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
-    //------------butterknife--end----------------------------
-    //------------leakcanary-------------------------------
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    //------------leakcanary--end----------------------------
+
     //------------arouter-------------------------------
-    //https://github.com/alibaba/ARouter
     api 'com.alibaba:arouter-api:1.4.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
-    //------------arouter end-------------------------------
+
+    //--------------logger------------
     api 'com.orhanobut:logger:2.2.0'
+
+
+
+
+    //-------------gson--------------
+    api 'com.google.code.gson:gson:2.8.5'
+
+    //--------------rxpermissions-------------
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+//    //--------------Google AAC-------
+//    api "android.arch.lifecycle:extensions:1.1.1"
+//    api "android.arch.lifecycle:compiler:1.1.1"
+//    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
+    //处理rxjava内存泄漏
+//    api 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+//    api 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
+//    api 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+
+
     implementation project(':eventLib')
 }

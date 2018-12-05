@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.eims.zihu"
         minSdkVersion project.minSdkVersion
@@ -15,6 +16,7 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
     }
 
     buildTypes {
@@ -28,21 +30,15 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //------------leakcanary-------------------------------
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    //------------leakcanary--end----------------------------
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     implementation project(':baseModule')
     //-----------------arouter-------------
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
-    implementation project(':zxingLib')
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    //-----------------Module-------------
     if (isNeedLoginModule.toBoolean()) {
         implementation project(':loginModule')
     }
-
-    if (isNeedWebModule.toBoolean()) {
-        implementation project(':webMoule')
-    }
-
+    implementation project(':webMoule')
 }

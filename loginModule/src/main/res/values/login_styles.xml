@@ -1,5 +1,23 @@
 <resources>
 
+    <!--edittext 后面的小叉“x”-->
+    <style name="login_delete">
+        <item name="android:layout_width">@dimen/base_size_8</item>
+        <item name="android:layout_height">@dimen/base_size_8</item>
+        <item name="android:scaleType">fitEnd</item>
+        <item name="android:src">@drawable/ic_delete</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:visibility">invisible</item>
+    </style>
 
+    <style name="login_btn">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/base_size_22</item>
+        <item name="android:background">@drawable/bg_btn_login</item>
+
+    </style>
 
 </resources>

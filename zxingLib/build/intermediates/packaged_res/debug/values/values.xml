@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="zxing_button">#66EEEEEE</color>
     <color name="zxing_custom_possible_result_points">#90000000</color>
     <color name="zxing_custom_result_view">#b0000000</color>
     <color name="zxing_custom_viewfinder_mask">#60000000</color>
@@ -40,11 +41,12 @@
     <string name="app_version" translatable="false">null.debug</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
+    <string name="zxing_lashlight">闪光灯</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
     <string name="zxing_msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
     <string name="zxing_title_activity_tabbed_scanning">Tabbed Scanning</string>
-    <string name="zxing_turn_off_flashlight">关闭闪光灯</string>
-    <string name="zxing_turn_on_flashlight">开启闪光灯</string>
+    <string name="zxing_turn_off_flashlight">闪光灯已关闭</string>
+    <string name="zxing_turn_on_flashlight">闪光灯已开启</string>
     <style name="zxing_CaptureTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen">
   </style>
 </resources>

@@ -3,69 +3,184 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-
     tools:context=".activity.LoginActivity">
 
-    <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/pb_login"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@drawable/bg_login">
+
+        <ImageView
+            android:layout_width="98dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_logo" />
+    </FrameLayout>
+
 
     <LinearLayout
         android:id="@+id/email_login_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/base_size_24"
+        android:layout_marginTop="@dimen/base_size_12"
+        android:layout_marginEnd="@dimen/base_size_28"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/et_account"
+            <LinearLayout
+                android:id="@+id/ll_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/account"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:orientation="horizontal">
 
-        </android.support.design.widget.TextInputLayout>
+                <ImageView
+                    android:layout_width="@dimen/base_size_13"
+                    android:layout_height="@dimen/base_size_13"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/base_size_1"
+                    android:padding="@dimen/base_size_1"
+                    android:src="@drawable/ic_head" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:maxLength="20"
+                        android:id="@+id/et_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/login_phone_or_account"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/base_text_size_2" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="@dimen/base_size_8"
+                android:layout_height="@dimen/base_size_8"
+                android:layout_alignBottom="@+id/ll_account"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/base_size_2"
+                android:layout_marginBottom="@dimen/base_size_8"
+                android:src="@drawable/ic_delete"
+                android:visibility="invisible" />
+        </RelativeLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/et_password"
+            <LinearLayout
+                android:id="@+id/ll_psd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
-                android:imeActionId="6"
-                android:imeActionLabel="123456789"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:layout_marginTop="@dimen/base_size_6"
+                android:orientation="horizontal">
 
-        </android.support.design.widget.TextInputLayout>
+                <ImageView
+                    android:layout_width="@dimen/base_size_13"
+                    android:layout_height="@dimen/base_size_13"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/base_size_1"
+                    android:padding="@dimen/base_size_1"
+                    android:src="@drawable/ic_lock" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:maxLength="20"
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/login_psd"
+                        android:imeActionId="6"
+                        android:imeActionLabel="123456789"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/base_text_size_2" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb_switch"
+                android:layout_width="@dimen/base_size_11"
+                android:layout_height="@dimen/base_size_5"
+                android:layout_alignBottom="@+id/ll_psd"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/base_size_2"
+                android:layout_marginBottom="@dimen/base_size_8"
+                android:background="@drawable/login_psd_switcher"
+                android:button="@null" />
+
+        </RelativeLayout>
 
 
         <Button
             android:id="@+id/btn_sign"
-            style="?android:textAppearanceSmall"
+            style="@style/login_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/action_sign"
+            android:layout_height="@dimen/base_size_22"
+            android:layout_marginTop="@dimen/base_size_18"
+            android:text="@string/login_action_sign"
             android:textStyle="bold" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/base_size_8">
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_register"
+            android:textColor="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_0" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/base_size_6"
+            android:layout_marginEnd="@dimen/base_size_6"
+            android:background="@color/base_secondary_text" />
+
+        <TextView
+            android:id="@+id/tv_forget_psd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_forget_pad"
+            android:textColor="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_0" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

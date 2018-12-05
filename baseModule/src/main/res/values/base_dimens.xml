@@ -37,6 +37,12 @@
     <dimen name="base_size_22">46dp</dimen>
     <dimen name="base_size_23">48dp</dimen>
     <dimen name="base_size_24">50dp</dimen>
+    <dimen name="base_size_25">52dp</dimen>
+    <dimen name="base_size_26">54dp</dimen>
+    <dimen name="base_size_27">56dp</dimen>
+    <dimen name="base_size_28">58dp</dimen>
+    <dimen name="base_size_29">60dp</dimen>
+
 
 
 </resources>

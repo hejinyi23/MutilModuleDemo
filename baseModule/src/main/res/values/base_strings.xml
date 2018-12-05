@@ -1,8 +1,9 @@
 <resources>
-    <string name="base_app_name">紫虎</string>
+    <string name="base_app_name">MultiModule</string>
     <!--授权提示-->
     <string name="base_notifyTitle">提示</string>
     <string name="base_authorization">去授权</string>
     <string name="base_cancel">取消</string>
+    <string name="base_accept_and_go_on">授权后继续</string>
 
 </resources>

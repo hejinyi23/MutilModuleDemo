@@ -1,21 +1,55 @@
 <resources>
-    <string name="app_name">ZiHu</string>
 
-    <string name="title_activity_welcome">WelcomeActivity</string>
-    <string name="dummy_content">WelcomeActivity</string>
-    <string name="title_activity_login">Sign in</string>
+
+    <string name="login_title_activity_welcome">WelcomeActivity</string>
+    <string name="login_dummy_content">WelcomeActivity</string>
+    <string name="login_title_activity_login">Sign in</string>
     <!-- Strings related to login -->
-    <string name="account">账号</string>
-    <string name="prompt_password">密码</string>
-    <string name="action_sign">登录</string>
-    <string name="error_invalid_account">账号不可用</string>
-    <string name="error_incorrect_password">密码不正确</string>
-    <string name="error_invalid_password">密码不可用</string>
-    <string name="error_field_required">不能为空</string>
-
-    <!--授权提示-->
-    <string name="notifyTitle">提示</string>
-    <string name="authorization">去授权</string>
-    <string name="cancle">取消</string>
+    <string name="login_account">账号</string>
+    <string name="login_phone_or_account">手机号/账号</string>
+    <string name="login_prompt_password">密码</string>
+    <string name="login_action_sign">登录</string>
+    <string name="login_register_account">新用户注册</string>
+    <string name="login_error_invalid_account">账号不可用</string>
+    <string name="login_error_incorrect_password">密码不正确</string>
+    <string name="login_error_invalid_password">密码不可用</string>
+    <string name="login_error_field_required">不能为空</string>
+    <string name="login_find_psd_string">找回密码</string>
+    <string name="login_input_phone_num">输入手机号码</string>
+    <string name="login_phone_num">手机号</string>
+    <string name="login_verification_number">验证码</string>
+    <string name="login_plese_input_verification">请输入验证码</string>
+    <string name="login_get_verification">获取验证码</string>
+    <string name="login_next">下一步</string>
+    <string name="login_verification_phone">验证手机号</string>
+    <string name="login_phone_register">手机号校验</string>
+    <string name="login_input_phone">请输入手机号</string>
+    <string name="login_input_verification_code">请输入验证码</string>
+    <string name="login_register">注册</string>
+    <string name="login_read_and_agree">我已阅读并遵守</string>
+    <string name="login_protocol">服务协议</string>
+    <string name="login_save_and_login">保存并登录</string>
+    <string name="login_psd">登录密码</string>
+    <string name="login_psd_verification">登录密码确认</string>
+    <string name="login_input_psd">请输入密码</string>
+    <string name="login_set_new_dan_cancel_od">设置新密码后旧密码将自动失效</string>
+    <string name="login_completely_delete">彻底删除</string>
+    <string name="login_old_psd">旧密码</string>
+    <string name="login_please_input_old_psd">旧密码</string>
+    <string name="login_new_psd">新密码</string>
+    <string name="login_please_input_new_psd">新密码</string>
+    <string name="login_input_new_psd_rule">8-20位字母或数字组合</string>
+    <string name="login_new_psd_verification">新密码确认</string>
+    <string name="login_please_input_psd_again">请再次输入新密码</string>
+    <string name="login_complete">完成</string>
+    <string name="login_forget_pad">忘记密码？</string>
+    <string name="login_register_phone_num">手机号注册</string>
+    <string name="login_register_zi_hu_account">注册账号</string>
+    <string name="login_set_psd">设置登录密码</string>
+    <string name="login_sending">正在发送</string>
+    <string name="login_resend">重新发送</string>
+    <string name="login_replace_phone_num">更换手机号码</string>
+    <string name="login_phone_num_unused">手机号码不正确</string>
+    <string name="login_agree_protocol_and_go_on">请同意协议后继续</string>
 
 </resources>

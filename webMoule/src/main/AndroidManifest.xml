@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.demo.webmoule">
+    package="com.eims.webmoule">
 
     <application>
-        <activity android:name="com.demo.webmoule.activity.WebActivity" />
+        <activity
+            android:name=".activity.WebActivity"
+            android:launchMode="singleTask" />
     </application>
 </manifest>
 

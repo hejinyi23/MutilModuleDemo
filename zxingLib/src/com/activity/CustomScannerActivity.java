@@ -6,7 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import com.google.zxing.client.android.R;
 import com.journeyapps.barcodescanner.CaptureManager;
@@ -14,7 +15,6 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import com.journeyapps.barcodescanner.ViewfinderView;
 
 import java.util.Random;
-
 
 
 /**
@@ -25,31 +25,42 @@ public class CustomScannerActivity extends Activity implements
 
     private CaptureManager capture;
     private DecoratedBarcodeView barcodeScannerView;
-    private Button switchFlashlightButton;
+    private CheckBox cbSwitchFlashlight;
     private ViewfinderView viewfinderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_scanner);
+        setContentView(R.layout.zxing_activity_custom_scanner);
 
         barcodeScannerView = findViewById(R.id.zxing_barcode_scanner);
         barcodeScannerView.setTorchListener(this);
 
-        switchFlashlightButton = findViewById(R.id.switch_flashlight);
+        cbSwitchFlashlight = findViewById(R.id.switch_flashlight);
 
         viewfinderView = findViewById(R.id.zxing_viewfinder_view);
 
         // if the device does not have flashlight in its camera,
         // then remove the switch flashlight button...
         if (!hasFlash()) {
-            switchFlashlightButton.setVisibility(View.GONE);
+            cbSwitchFlashlight.setVisibility(View.GONE);
+        } else {
+            cbSwitchFlashlight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        barcodeScannerView.setTorchOn();
+                    } else {
+                        barcodeScannerView.setTorchOff();
+                    }
+                }
+            });
         }
 
         capture = new CaptureManager(this, barcodeScannerView);
         capture.initializeFromIntent(getIntent(), savedInstanceState);
         capture.decode();
-       // changeMaskColor();
+
     }
 
     @Override
@@ -91,13 +102,6 @@ public class CustomScannerActivity extends Activity implements
                 .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
-    public void switchFlashlight(View view) {
-        if (getString(R.string.zxing_turn_on_flashlight).equals(switchFlashlightButton.getText())) {
-            barcodeScannerView.setTorchOn();
-        } else {
-            barcodeScannerView.setTorchOff();
-        }
-    }
 
     public void changeMaskColor() {
         Random rnd = new Random();
@@ -107,11 +111,16 @@ public class CustomScannerActivity extends Activity implements
 
     @Override
     public void onTorchOn() {
-        switchFlashlightButton.setText(R.string.zxing_turn_on_flashlight);
+        cbSwitchFlashlight.setText(R.string.zxing_turn_on_flashlight);
     }
 
     @Override
     public void onTorchOff() {
-        switchFlashlightButton.setText(R.string.zxing_turn_off_flashlight);
+        cbSwitchFlashlight.setText(R.string.zxing_turn_off_flashlight);
+    }
+
+
+    public void onClick(View view) {
+        finish();
     }
 }
