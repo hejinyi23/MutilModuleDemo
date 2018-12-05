@@ -1,0 +1,112 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_page_background"
+
+    android:orientation="vertical">
+
+
+    <TextView
+        android:padding="@dimen/base_size_4"
+        android:id="@+id/reminder_phone_verification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/login_phone_register"
+        android:textColor="@color/base_secondary_text"
+        android:textSize="@dimen/base_text_size_1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_size_24"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/base_size_6"
+        android:paddingEnd="@dimen/base_size_6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_phone_num"
+            android:textColor="@color/base_primary_text"
+            android:textSize="@dimen/base_text_size_1" />
+
+        <TextView
+            android:paddingStart="@dimen/base_size_2"
+            android:id="@+id/phone_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/base_size_2"
+            android:text="+86 "
+            android:textColor="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_size_24"
+        android:layout_marginTop="@dimen/base_size_0"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/base_size_6"
+        android:paddingEnd="@dimen/base_size_6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_verification_number"
+            android:textColor="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_1" />
+
+
+        <EditText
+            android:maxLength="10"
+            android:paddingStart="@dimen/base_size_2"
+            android:paddingEnd="@dimen/base_size_2"
+            android:id="@+id/et_verification"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/login_plese_input_verification"
+            android:inputType="number"
+            android:textColor="@color/base_primary_text"
+            android:textColorHint="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_1" />
+
+        <View
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/base_text_size_3"
+            android:id="@+id/view_v_line"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/base_divider" />
+
+        <Button
+            android:padding="@dimen/base_size_1"
+            android:id="@+id/btn_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center"
+            android:text="@string/login_get_verification"
+            android:textColor="@color/base_colorPrimary"
+            android:textSize="@dimen/base_text_size_0" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_next_verification"
+        style="@style/login_btn"
+        android:layout_marginLeft="@dimen/base_size_6"
+        android:layout_marginTop="@dimen/base_size_20"
+        android:layout_marginRight="@dimen/base_size_6"
+        android:gravity="center"
+        android:text="@string/login_next"
+        android:textSize="@dimen/base_text_size_2" />
+</LinearLayout>

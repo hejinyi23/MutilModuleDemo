@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_page_background"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_login">
+
+        <ImageView
+            android:layout_width="98dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_logo" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/base_size_24"
+        android:layout_marginEnd="@dimen/base_size_28"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_size_16"
+            android:text="@string/login_register_phone_num"
+            android:textColor="@color/base_colorPrimary"
+            android:textSize="@dimen/base_text_size_4" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/base_size_24"
+            android:layout_marginTop="@dimen/base_size_16">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_phone_regist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+86"
+                android:textSize="@dimen/base_text_size_2" />
+
+            <EditText
+                android:layout_centerVertical="true"
+                android:id="@+id/et_phone_regist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/base_size_1"
+                android:layout_toRightOf="@+id/tv_phone_regist"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/login_input_phone"
+                android:inputType="number"
+                android:textColor="@color/base_primary_text"
+                android:textColorHint="@color/base_secondary_text"
+                android:textSize="@dimen/base_text_size_2" />
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_delete"
+                style="@style/login_delete" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/regist"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/base_size_22"
+            android:layout_marginTop="@dimen/base_size_26"
+            android:background="@drawable/bg_btn_login"
+            android:gravity="center"
+            android:padding="@dimen/base_size_1"
+            android:text="@string/login_register"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/base_text_size_1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/base_size_4"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_read_and_agree"
+                android:textColor="@color/base_secondary_text"
+                android:textSize="@dimen/base_text_size_1" />
+
+            <TextView
+                android:id="@+id/user_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/base_size_0"
+                android:background="@drawable/base_bottom_black_line"
+                android:text="@string/login_protocol"
+                android:textColor="@color/base_colorPrimary"
+                android:textSize="@dimen/base_text_size_1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

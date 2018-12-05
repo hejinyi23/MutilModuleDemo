@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/base_size_1"
+    android:gravity="center_horizontal"
+    android:background="@color/base_page_background"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_marginTop="60dp"
+        android:layout_width="100dp"
+        android:layout_height="94dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/base_text_size_1"
+        android:textColor="@color/base_primary_text"
+        android:text="XXXXXXX" />
+
+    <Button
+        android:id="@+id/btn_login_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_size_2"
+        android:gravity="center"
+        android:text="@string/login_action_sign"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/base_text_size_1" />
+
+ <Button
+        android:id="@+id/btn_regist_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/login_register_account"
+        android:textColor="@color/base_primary_text"
+        android:textSize="@dimen/base_text_size_1" />
+</LinearLayout>

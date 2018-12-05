@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_page_background"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tip_find_psd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_size_15"
+        android:gravity="center"
+        android:text="@string/login_find_psd_string"
+        android:textColor="@color/base_secondary_text"
+        android:textSize="@dimen/base_text_size_1" />
+
+    <TextView
+        android:id="@+id/space_find_psd"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_size_24"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/base_size_5"
+        android:paddingRight="@dimen/base_size_5">
+
+        <TextView
+            android:id="@+id/tv_phone_find_psd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/base_size_0"
+            android:text="+86" />
+
+        <EditText
+            android:id="@+id/et_phone_find_psd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/base_size_2"
+            android:layout_toRightOf="@+id/tv_phone_find_psd"
+            android:background="@null"
+            android:digits="1234567890"
+            android:gravity="center_vertical"
+            android:hint="@string/login_input_phone_num"
+            android:inputType="number"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/base_primary_text"
+            android:textColorHint="@color/base_secondary_text"
+            android:textSize="@dimen/base_text_size_1" />
+
+        <ImageView
+            android:id="@+id/delete_phone"
+            style="@style/login_delete"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_next_find_psd"
+        style="@style/login_btn"
+        android:layout_marginLeft="@dimen/base_size_3"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/base_size_3"
+        android:padding="@dimen/base_size_1"
+        android:text="@string/login_next"
+        android:textSize="@dimen/base_text_size_1" />
+</LinearLayout>

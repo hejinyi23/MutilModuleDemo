@@ -1,0 +1,5 @@
+<resources>
+    <string name="web_app_name">webMoudle</string>
+    <string name="need_storge_permission_to_cache">网页缓存需要存储权限</string>
+    <string name="need_camera_permission_to_take_photo">拍照需要相机权限</string>
+</resources>
