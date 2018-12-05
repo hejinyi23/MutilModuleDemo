@@ -3,7 +3,7 @@
     package="com.demo.masklib">
 
     <application>
-        <activity android:name="com.md.masklib.MainActivity"
+        <activity android:name="com.mm.masklib.MainActivity"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

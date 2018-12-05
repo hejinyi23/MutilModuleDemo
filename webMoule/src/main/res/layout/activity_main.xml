@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.WebActivity">
 
-    <com.md.webmoule.view.MyWebView
+    <com.mm.webmoule.view.MyWebView
         android:id="@+id/wv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
